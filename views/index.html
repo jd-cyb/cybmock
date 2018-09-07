@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="renderer" content="webkit">
+  <meta name="apple-mobile-web-app-capable" content="no" />
+  <meta name="format-detection" content="telephone=no">
+  <title>{{projectName}} 接口列表</title>
+  <link rel="stylesheet" href="static/css/prism.css">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="static/css/pnotify.custom.min.css">
+  <style>
+  .jumbotron {
+    background-color: #002a32;
+    color: #fff;
+  }
+
+  pre {
+    max-height: 45em;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>{{projectName}} - 接口列表</h1>
+      <p>
+        点击列表按钮查看接口数据和详情。
+      </p>
+      <p>CYBMOCK前端数据模拟服务器
+        <a class="btn btn-primary" href="https://github.com/jd-cyb/cyb-mockserver" target="_blank" role="button">Github</a>
+        <a class="btn btn-warning" href="https://github.com/jd-cyb/cyb-mockserver/wiki" target="_blank" role="button">Wiki文档</a>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <!-- Three columns of text below the carousel -->
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Type</th>
+            <th>Local</th>
+            <th>External</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each interface}}
+          <tr>
+            <th scope="row">{{inc @index}}</th>
+            <td>{{method}}</td>
+            <td>localhost:{{../serverPort}}{{route}}</td>
+            <td>{{../serverIp}}:{{../serverPort}}{{route}}</td>
+            <td><a data-route="{{route}}" data-method="{{method}}" class="btn btn-default btn-xs js-view" href="#" target="_blank" role="button">View</a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <!-- /.row -->
+    <!-- FOOTER -->
+    <hr>
+    <footer align='center'>
+      <p>© 2018 塞伯坦CYBMOCK前端数据模拟服务器</p>
+    </footer>
+  </div>
+  <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="js-modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <pre><code class="language-json copy-to-clipboard" id="js-json-code"></code></pre>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="static/js/jquery-2.1.3.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/axios.min.js"></script>
+<script src="static/js/prism.js"></script>
+<script src="static/js/pnotify.custom.min.js"></script>
+<script>
+(function() {
+  $('.js-view').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    if ($this.data('method') === 'get') {
+      axios
+        .get($this.data('route'))
+        .then(function(response) {
+          $("#js-modal-title").html($this.data('method').toUpperCase() + ' ' + $this.data('route'));
+          $("#js-json-code").html(JSON.stringify(response.data, null, 2));
+          $('#myModal').modal();
+        })
+        .catch(function(error) {
+          new PNotify({
+            title: 'Error!',
+            text: $this.data('route') + '<br/>' + error,
+            type: 'error',
+            styling: 'bootstrap3'
+          });
+        })
+    } else if ($this.data('method') === 'post') {
+      axios
+        .post($this.data('route'))
+        .then(function(response) {
+          $("#js-modal-title").html($this.data('method').toUpperCase() + ' ' + $this.data('route'));
+          $("#js-json-code").html(JSON.stringify(response.data, null, 2));
+          $('#myModal').modal();
+        })
+        .catch(function(error) {
+          new PNotify({
+            title: 'Error!',
+            text: $this.data('route') + '<br/>' + error,
+            type: 'error',
+            styling: 'bootstrap3'
+          });
+        })
+    }
+  });
+  $('#myModal').on('hidden.bs.modal', function(e) {
+    $("#js-modal-title").html('')
+    $("#js-json-code").html('')
+  })
+})();
+
+</script>
+
+</html>

@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+const chalk = require('chalk')
+const program = require('commander')
+
+console.log("---------------------------------------")
+console.log(chalk.cyan("* 欢迎使用 CYBMOCK 前端数据模拟服务器 *"))
+console.log("---------------------------------------")
+
+program
+  .version(require('../package').version)
+  .usage('<command> [options]')
+  .command('start', '启动数据模拟服务器')
+  .parse(process.argv)
