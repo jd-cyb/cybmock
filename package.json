@@ -1,7 +1,11 @@
 {
   "name": "cybmock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "塞伯坦CYBMOCK前端数据模拟服务器",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jd-cyb/cybmock"
+  },
   "main": "index.js",
   "scripts": {},
   "bin": {
@@ -10,6 +14,7 @@
   },
   "author": "furic-zhao",
   "license": "MIT",
+  "homepage": "http://cybmock.hestudy.com/",
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",

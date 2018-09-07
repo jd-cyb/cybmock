@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://cyb.hestudy.com" target="_blank">
-    <img width="300" src="./cybmock.png">
+    <img width="300" src="./lib/cybmock.png">
   </a>
   <br>
   <br>
@@ -131,7 +131,7 @@ module.exports = proxy
 > CYBMOCK 同时会自动打开默认浏览器进入MOCK数据服务环境，并罗列出项目中的所有 MOCK接口，`cybmock.config.js`及`mock`目录中任意文件的更改都会自动更新接口，请尽情享用CYBMOCK为你带来高效、愉悦的MOCK服务体验！
 
 
-<img width="100%" src="./cybmock-demo.png">
+<img width="100%" src="./lib/cybmock-demo.png">
 
 <h2 align="center">升级</h2>
 
