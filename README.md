@@ -15,7 +15,7 @@
 </p>
 
 <h1 align="center">塞伯坦（CYBMOCK）前端数据模拟服务器</h1>
-帮助WEB开发者快速生成模拟数据，支持在本地或远程快速构建真实的服务器环境，模拟服务器返回的各种场景的请求数据。支持同时启动多个MOCK服务，极大提高开发和测试效率。
+帮助WEB开发者零配置、快速构建MOCK服务器，模拟服务器返回的对象、数组、以及根据传参变化的各种场景的请求数据。支持MOCK数据的热更新、及使用ES6 Module模块化组织和维护MOCK数据。支持同时启动多个MOCK服务。
 
 <h2 align="center">安装和使用</h2>
 
@@ -28,7 +28,7 @@
 **1. 安装 Node 和 NPM**
 
 - 官网下载安装Node: [https://nodejs.org](https://nodejs.org)。
-- 建议使用最新稳定版(LTS)。
+- node >= 6.x，建议使用最新稳定版(LTS)。
 - Ubuntu 用户使用 `apt-get` 安装 node 后，安装的程序名叫 `nodejs`，需要软链成 `node`。
 - Windows 用户安装完成后需要在 CMD 下确认是否能执行 node 和 npm。
 
@@ -48,7 +48,7 @@ npm install -g cybmock
 yarn global add cybmock
 ```
 
-> 某些window系统若不能正常安装CYB，请使用管理员身份先安装[windows-build-tools](https://github.com/felixrieseberg/windows-build-tools)。
+> 某些window系统若不能正常安装CYBMOCK，请使用管理员身份先安装[windows-build-tools](https://github.com/felixrieseberg/windows-build-tools)。
 
 ### 使用
 
@@ -103,10 +103,8 @@ module.exports = proxy
 .
 ├── cybmock.config.js
 ├── mock
-│   ├── chart.js
-│   ├── notices.js
-│   ├── profile.js
-│   └── rule.js
+│   ├── demo-get.js
+│   └── demo-post.js
 ├── node_modules
 │   └── mockjs
 └── package.json
@@ -114,21 +112,19 @@ module.exports = proxy
 
 //cybmock.config.js
 
-import chart from './mock/chart'
-import notices from './mock/notices'
-import profile from './mock/profile'
-import rule from './mock/rule'
+import demoGet from './mock/demo-get'
+import demoPost from './mock/demo-post'
+import mockjs from 'mockjs'
 
 const proxy = {
-    'GET /api/demoGet': chart,
-    'POST /api/demoArray': notices,
-    'GET /api/tags': profile,
-    'POST /api/login': rule
+    'GET /api/demoGet': demoGet,
+    'POST /api/demoArray': demoPost,
+    'GET /api/demoMockjs': mockjs.mock('@string("lower", 5)')
 }
 module.exports = proxy
 ```
 
-> CYBMOCK 同时会自动打开默认浏览器进入MOCK数据服务环境，并罗列出项目中的所有 MOCK接口，`cybmock.config.js`及`mock`目录中任意文件的更改都会自动更新接口，请尽情享用CYBMOCK为你带来高效、愉悦的MOCK服务体验！
+> CYBMOCK 会自动打开默认浏览器进入MOCK数据服务环境，并罗列出`cybmock.config.js`配置的所有 MOCK接口，`cybmock.config.js`及`mock`目录中任意MOCK数据文件的更改都会自动更新接口，请尽情享用CYBMOCK为你带来高效、愉悦的MOCK服务体验！
 
 
 <img width="100%" src="./lib/cybmock-demo.png">
