@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://cyb.hestudy.com" target="_blank">
+  <a href="http://cybmock.hestudy.com" target="_blank">
     <img width="300" src="./lib/cybmock.png">
   </a>
   <br>
