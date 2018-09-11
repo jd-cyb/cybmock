@@ -129,6 +129,16 @@ module.exports = proxy
 
 <img width="100%" src="./lib/cybmock-demo.png">
 
+<h2 align="center">命令说明</h2>
+
+- **启动MOCK服务器**
+
+```bash
+cybmock start
+```
+
+> 零配置快速启动MOCK服务器，如果命令执行目录`cybmock.config.js`配置文件不存在，会默认创建`cybmock.config.js`并生成demo数据，同时自动打开默认浏览器进入MOCK数据服务环境，并罗列出`cybmock.config.js`配置的所有MOCK接口，任何MOCK数据文件的更改都会自动更新接口。
+
 <h2 align="center">升级</h2>
 
 - **使用npm升级**
