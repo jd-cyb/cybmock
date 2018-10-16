@@ -15,7 +15,7 @@
 </p>
 
 <h1 align="center">塞伯坦（CYBMOCK）前端数据模拟服务器</h1>
-帮助WEB开发者零配置、快速构建MOCK服务器，模拟服务器返回的对象、数组、以及根据传参变化的各种场景的请求数据。支持MOCK数据的热更新、及使用ES6 Module模块化组织和维护MOCK数据。支持同时启动多个MOCK服务。
+帮助WEB开发者零配置、快速构建MOCK服务器，模拟服务器返回的对象、数组、以及根据传参变化的各种场景的请求数据。支持MOCK数据的热更新、及使用ES Module模块化组织和维护MOCK数据。支持同时启动多个MOCK服务。
 
 <h2 align="center">安装和使用</h2>
 
@@ -36,16 +36,8 @@
 
 **2. 全局安装 CYBMOCK**
 
-使用npm安装
-
 ```bash
-npm install -g cybmock
-```
-
-使用yarn安装
-
-```
-yarn global add cybmock
+npm install -g cybmock #或者 yarn global add cybmock
 ```
 
 > 某些window系统若不能正常安装CYBMOCK，请使用管理员身份先安装[windows-build-tools](https://github.com/felixrieseberg/windows-build-tools)。
