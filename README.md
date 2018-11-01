@@ -57,8 +57,6 @@ cd project
 
 **2. 运行MOCK服务**
 
-进入MOCK数据或已有项目目录 执行
-
 ```bash
 cybmock start
 ```
@@ -86,10 +84,9 @@ const proxy = {
 }
 
 module.exports = proxy
-
 ```
 
-为了便于复杂项目MOCK数据的管理，请在与`cybmock.config.js`同级新建`mock`目录，用于存放更多的MOCK数据模块，并支持使用ES6 Module或CommonJS的模块化管理MOCK数据。
+为了便于复杂项目MOCK数据的管理，请在与`cybmock.config.js`同级新建`mock`目录，用于存放更多的MOCK数据模块，并支持使用ES Module或CommonJS的模块化管理MOCK数据。
 
 ```
 .
@@ -129,7 +126,7 @@ module.exports = proxy
 cybmock start
 ```
 
-> 零配置快速启动MOCK服务器，如果命令执行目录`cybmock.config.js`配置文件不存在，会默认创建`cybmock.config.js`并生成demo数据，同时自动打开默认浏览器进入MOCK数据服务环境，并罗列出`cybmock.config.js`配置的所有MOCK接口，任何MOCK数据文件的更改都会自动更新接口。
+> 零配置快速启动MOCK服务器，如果命令执行目录`cybmock.config.js`配置文件不存在，会默认创建`cybmock.config.js`并生成demo数据，同时自动打开默认浏览器进入MOCK数据服务环境，并罗列出`cybmock.config.js`配置的MOCK接口，任何MOCK数据文件的更改都会自动更新接口。
 
 <h2 align="center">升级</h2>
 
@@ -144,6 +141,13 @@ npm update -g cybmock
 ```
 yarn global upgrade cybmock
 ```
+<h2 align="center">资源链接</h2>
+
+使用文档：[http://cybmock.hestudy.com/docs/](http://cybmock.hestudy.com/docs/)
+
+官方网站：[http://cybmock.hestudy.com/](http://cybmock.hestudy.com/)
+
+塞伯坦CYB：[http://cyb.hestudy.com/](http://cyb.hestudy.com/)
 
 <h2 align="center">License</h2>
 
