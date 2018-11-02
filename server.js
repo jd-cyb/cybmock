@@ -18,7 +18,8 @@ const Handlebars = require('handlebars')
 
 // 允许所有的请求形式
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Origin", req.headers.origin); //需要显示设置来源
+  res.header("Access-Control-Allow-Credentials",true); //带cookies
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next()
 })
