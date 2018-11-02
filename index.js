@@ -5,7 +5,7 @@
  * =================================
  */
 
-const nodemon = require('gulp-nodemon')
+const nodemon = require('nodemon')
 const path = require('path')
 const fs = require('fs')
 const chalk = require('chalk')
@@ -28,8 +28,8 @@ module.exports = () => {
           setTimeout(() => {
             findCacheFile()
             num++
-            if (num >= 30) reject()
-          }, 500)
+            if (num >= 150) reject()
+          }, 100)
         } else {
           resolve()
         }
@@ -39,7 +39,7 @@ module.exports = () => {
   }
 
   if (!fs.existsSync(mockRouterFile)) {
-    const mockRouterTemp = `const proxy = {
+    const mockRouterTemp = `module.exports = {
   'GET /api/demoGet': {
     tips: '用于演示GET请求',
     name: '塞伯坦前端模块化工程构建工具',
@@ -51,8 +51,6 @@ module.exports = () => {
     github: 'https://github.com/jd-cyb/cybmock'
   }
 }
-
-module.exports = proxy
 `
     fs.writeFileSync(mockRouterFile, mockRouterTemp, 'utf8');
   }
@@ -87,8 +85,10 @@ module.exports = proxy
     })
     .on('restart', () => {
       setTimeout(() => {
-        browserSync.reload()
-      }, 500)
+        checkCacheFile().then(() => {
+          browserSync.reload()
+        })
+      }, 100)
     })
     .on('crash', () => {
       stream.emit('restart', 10)
