@@ -95,5 +95,13 @@ module.exports = () => {
     })
     .on('exit', () => {
       del.sync(cacheFile) //删除缓存文件
+      if (stream.quitEmitted) {
+        process.exit(0)
+      }
+    })
+
+    process.on('SIGINT', () => {
+      stream.emit('quit')
+      stream.quitEmitted = true
     })
 }
