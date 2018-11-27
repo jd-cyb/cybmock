@@ -1,6 +1,6 @@
 {
   "name": "cybmock",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "塞伯坦前端数据模拟服务器",
   "repository": {
     "type": "git",
