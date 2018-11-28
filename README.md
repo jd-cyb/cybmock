@@ -153,6 +153,6 @@ yarn global upgrade cybmock
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018, [塞伯坦前端小组](https://github.com/jd-cyb)
+Copyright (c) 2018, [塞伯坦前端架构组](https://github.com/jd-cyb)
 
 
