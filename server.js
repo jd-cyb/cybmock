@@ -9,17 +9,18 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const portscanner = require('portscanner')
-const mockMiddleware = require('./lib/mock-middleware')
 const fsExtra = require('fs-extra')
 const path = require('path')
 const cons = require('consolidate')
 const internalIp = require('internal-ip')
 const Handlebars = require('handlebars')
 
+const mockMiddleware = require('./lib/mock-middleware')
+
 // 允许所有的请求形式
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin); //需要显示设置来源
-  res.header("Access-Control-Allow-Credentials",true); //带cookies
+  res.header("Access-Control-Allow-Origin", req.headers.origin) //需要显示设置来源
+  res.header("Access-Control-Allow-Credentials", true) //带cookies
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next()
 })
@@ -45,8 +46,7 @@ Handlebars.registerHelper("inc", function (value, options) {
 const cacheFile = path.join(process.cwd(), './.cache')
 
 let interface = [] //接口列表
-
-mockMiddleware().filter(item => {
+mockMiddleware.routes.filter(item => {
   app[item.method](item.route, item.handle)
   interface.push({
     method: item.method,
@@ -67,7 +67,7 @@ app.get('/', (req, res) => {
   })
 })
 
-portscanner.findAPortNotInUse(3000, 3050, '127.0.0.1', function (error, port) {
+portscanner.findAPortNotInUse(mockMiddleware.config.port, mockMiddleware.config.port + 50, '127.0.0.1', function (error, port) {
   serverPort = port //服务器端口
 
   fsExtra.writeJson(cacheFile, {

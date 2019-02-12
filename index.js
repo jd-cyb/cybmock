@@ -39,7 +39,7 @@ module.exports = () => {
   }
 
   if (!fs.existsSync(mockRouterFile)) {
-    const mockRouterTemp = `module.exports = {
+  const mockRouterTemp = `module.exports = {
   'GET /api/demoGet': {
     tips: '用于演示GET请求',
     name: '塞伯坦前端模块化工程构建工具',
@@ -50,8 +50,8 @@ module.exports = () => {
     name: '塞伯坦前端数据模拟服务器',
     github: 'https://github.com/jd-cyb/cybmock'
   }
-}
-`
+  }
+  `
     fs.writeFileSync(mockRouterFile, mockRouterTemp, 'utf8');
   }
 
@@ -100,8 +100,8 @@ module.exports = () => {
       }
     })
 
-    process.on('SIGINT', () => {
-      stream.emit('quit')
-      stream.quitEmitted = true
-    })
+  process.on('SIGINT', () => {
+    stream.emit('quit')
+    stream.quitEmitted = true
+  })
 }
