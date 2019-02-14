@@ -8,15 +8,15 @@
 const nodemon = require('nodemon')
 const path = require('path')
 const fs = require('fs')
-const chalk = require('chalk')
 const browserSync = require('browser-sync').create();
 const fsExtra = require('fs-extra')
 const del = require('del')
 
-const cacheFile = path.join(process.cwd(), './.cache')
-const mockRouterFile = path.join(process.cwd(), 'cybmock.config.js')
+const serverConfig = require('./lib/server.config')
 
 module.exports = () => {
+  const cacheFile = path.join(process.cwd(), './.cache')
+  const mockRouterFile = path.join(process.cwd(), 'cybmock.config.js')
 
   del.sync(cacheFile) //删除缓存文件
 
@@ -71,11 +71,13 @@ module.exports = () => {
 
   stream
     .on('start', () => {
+
       if (!started) {
         checkCacheFile().then(() => {
           fsExtra.readJson(cacheFile, (err, packageObj) => {
             if (err) return console.error(err)
             browserSync.init({
+              ...serverConfig.browserSync,
               proxy: `localhost:${packageObj.port}`
             })
           })

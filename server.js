@@ -14,10 +14,13 @@ const path = require('path')
 const cons = require('consolidate')
 const internalIp = require('internal-ip')
 const Handlebars = require('handlebars')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
 
 const mockMiddleware = require('./lib/mock-middleware')
+const serverConfig = require('./lib/server.config')
 
-// 允许所有的请求形式
+// 允许所有的请求形式 (跨域)
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.headers.origin) //需要显示设置来源
   res.header("Access-Control-Allow-Credentials", true) //带cookies
@@ -30,6 +33,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: false
 }))
+
+// cookie-parser
+app.use(cookieParser(serverConfig.cookie.secret,serverConfig.cookie.options))
+
+//express-session
+app.use(session(serverConfig.session))
 
 app.use('/static', express.static(path.join(__dirname, './public')))
 app.set('views', path.join(__dirname, './views'))
@@ -46,7 +55,7 @@ Handlebars.registerHelper("inc", function (value, options) {
 const cacheFile = path.join(process.cwd(), './.cache')
 
 let interface = [] //接口列表
-mockMiddleware.routes.filter(item => {
+mockMiddleware.filter(item => {
   app[item.method](item.route, item.handle)
   interface.push({
     method: item.method,
@@ -67,7 +76,7 @@ app.get('/', (req, res) => {
   })
 })
 
-portscanner.findAPortNotInUse(mockMiddleware.config.port, mockMiddleware.config.port + 50, '127.0.0.1', function (error, port) {
+portscanner.findAPortNotInUse(serverConfig.port, serverConfig.port + 50, '127.0.0.1', function (error, port) {
   serverPort = port //服务器端口
 
   fsExtra.writeJson(cacheFile, {
