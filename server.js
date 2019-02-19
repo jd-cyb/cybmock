@@ -16,6 +16,8 @@ const internalIp = require('internal-ip')
 const Handlebars = require('handlebars')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const FileStore = require('session-file-store')(session)
+const merge = require('lodash/merge')
 
 const mockMiddleware = require('./lib/mock-middleware')
 const serverConfig = require('./lib/server.config')
@@ -28,17 +30,22 @@ app.use((req, res, next) => {
   next()
 })
 
-// 添加json解析
+// parse application/json
 app.use(bodyParser.json())
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
   extended: false
 }))
 
 // cookie-parser
-app.use(cookieParser(serverConfig.cookie.secret,serverConfig.cookie.options))
+app.use(cookieParser(serverConfig.cookie.secret, serverConfig.cookie.options))
 
 //express-session
-app.use(session(serverConfig.session))
+app.use(session(merge({
+  store: new FileStore({
+    path: path.join(__dirname, './sessions')
+  })
+}, serverConfig.session)))
 
 app.use('/static', express.static(path.join(__dirname, './public')))
 app.set('views', path.join(__dirname, './views'))
