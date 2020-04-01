@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CYBMOCK配置说明 | CYBMOCK</title>
+    <meta name="description" content="塞伯坦前端数据模拟服务器">
+    <link rel="shortcut icon" href="/cybmock/docs/favicon.ico">
+    
+    <link rel="preload" href="/cybmock/docs/assets/css/0.styles.408c612b.css" as="style"><link rel="preload" href="/cybmock/docs/assets/js/app.6c873d0a.js" as="script"><link rel="preload" href="/cybmock/docs/assets/js/4.a55ad2d3.js" as="script"><link rel="prefetch" href="/cybmock/docs/assets/js/2.8c50750e.js"><link rel="prefetch" href="/cybmock/docs/assets/js/3.e2967aaa.js"><link rel="prefetch" href="/cybmock/docs/assets/js/5.b9fb4d53.js"><link rel="prefetch" href="/cybmock/docs/assets/js/6.c6708033.js">
+    <link rel="stylesheet" href="/cybmock/docs/assets/css/0.styles.408c612b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/cybmock/docs/" class="home-link router-link-active"><!----> <span class="site-name">CYBMOCK</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/cybmock/docs/guide/" class="nav-link">安装和使用</a></div><div class="nav-item"><a href="/cybmock/docs/config/" class="nav-link router-link-exact-active router-link-active">配置</a></div><div class="nav-item"><a href="https://jd-cyb.github.io/cybmock" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  官方网站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/jd-cyb/cybmock" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/cybmock/docs/guide/" class="nav-link">安装和使用</a></div><div class="nav-item"><a href="/cybmock/docs/config/" class="nav-link router-link-exact-active router-link-active">配置</a></div><div class="nav-item"><a href="https://jd-cyb.github.io/cybmock" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  官方网站
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://github.com/jd-cyb/cybmock" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>CYBMOCK配置说明</span> <!----></p> <ul class="sidebar-group-items"><li><a href="/cybmock/docs/config/#配置规则" class="sidebar-link">配置规则</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/cybmock/docs/config/#mock数据类型" class="sidebar-link">MOCK数据类型</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/cybmock/docs/config/#http请求方法" class="sidebar-link">HTTP请求方法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/cybmock/docs/config/#解析http请求" class="sidebar-link">解析HTTP请求</a></li></ul></li><li><a href="/cybmock/docs/config/#mock数据配置及管理" class="sidebar-link">MOCK数据配置及管理</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/cybmock/docs/config/#mock服务器配置" class="sidebar-link">MOCK服务器配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/cybmock/docs/config/#mock服务器端口配置" class="sidebar-link">MOCK服务器端口配置</a></li><li class="sidebar-sub-header"><a href="/cybmock/docs/config/#mock服务器session配置" class="sidebar-link">MOCK服务器Session配置</a></li><li class="sidebar-sub-header"><a href="/cybmock/docs/config/#mock服务器cookie配置" class="sidebar-link">MOCK服务器Cookie配置</a></li><li class="sidebar-sub-header"><a href="/cybmock/docs/config/#browsersync配置" class="sidebar-link">Browsersync配置</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="cybmock配置说明"><a href="#cybmock配置说明" aria-hidden="true" class="header-anchor">#</a> CYBMOCK配置说明</h1> <h2 id="配置规则"><a href="#配置规则" aria-hidden="true" class="header-anchor">#</a> 配置规则</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// cybmock.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'GET /api/demoGet'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token operator">/</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">/</span><span class="token keyword">function</span>
+<span class="token comment">//   \_/ \___________/ \______________/ </span>
+<span class="token comment">//    |        |              |</span>
+<span class="token comment">//  method    path           data</span>
+<span class="token punctuation">}</span>
+</code></pre></div><ul><li><p><strong>Method 是HTTP请求方法。</strong></p></li> <li><p><strong>PATH 是服务器上的路径。</strong></p></li> <li><p><strong>Data 是服务器返回的数据。</strong></p></li></ul> <h2 id="mock数据类型"><a href="#mock数据类型" aria-hidden="true" class="header-anchor">#</a> MOCK数据类型</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// cybmock.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token comment">//支持对象数据</span>
+    <span class="token string">'GET /api/demoGet'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        tips<span class="token punctuation">:</span> <span class="token string">'用于演示get请求'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'塞伯坦前端数据模拟服务器'</span><span class="token punctuation">,</span>
+        github<span class="token punctuation">:</span> <span class="token string">'https://github.com/jd-cyb/cybmock'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">//支持数组数据</span>
+    <span class="token string">'POST /api/demoArray'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        tips<span class="token punctuation">:</span> <span class="token string">'用于演示返回数组的请求'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'num1'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        tips<span class="token punctuation">:</span> <span class="token string">'用于演示返回数组的请求'</span><span class="token punctuation">,</span>
+        name<span class="token punctuation">:</span> <span class="token string">'num2'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">//支持函数路由（根据传参返回各种类型数据）</span>
+    <span class="token string">'GET /api/tags'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            tips<span class="token punctuation">:</span> <span class="token string">'用于演示函数路由'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="http请求方法"><a href="#http请求方法" aria-hidden="true" class="header-anchor">#</a> HTTP请求方法</h2> <p>CYBMOCK 底层使用express，支持对应于 HTTP 方法的以下路由方法：get、post、put、head、delete、options、trace、copy、lock、mkcol、move、purge、propfind、proppatch、unlock、report、mkactivity、checkout、merge、m-search、notify、subscribe、unsubscribe、patch、search 和 connect。 具体请参考：<a href="https://expressjs.com/zh-cn/guide/routing.html" target="_blank" rel="noopener noreferrer">https://expressjs.com/zh-cn/guide/routing.html<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// cybmock.config.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'GET /api/demoGet'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Hello World!'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'POST /api/demoPost'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Got a POST request'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'PUT /api/demoPut'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Got a PUT request at /api/demoPut'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">'DELETE /api/demoDelete'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'Got a DELETE request at /api/demoDelete'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>Request及Response</strong></p> <p>CYBMOCK 支持req及res的各种API。请参考：<a href="https://expressjs.com/zh-cn/4x/api.html#req" target="_blank" rel="noopener noreferrer">https://expressjs.com/zh-cn/4x/api.html#req<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，<a href="https://expressjs.com/zh-cn/4x/api.html#res" target="_blank" rel="noopener noreferrer">https://expressjs.com/zh-cn/4x/api.html#res<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h3 id="解析http请求"><a href="#解析http请求" aria-hidden="true" class="header-anchor">#</a> 解析HTTP请求</h3> <p>CYBMOCK默认已集成<code>body-parser</code>中间件，并已配置<code>application/x-www-form-urlencoded</code>和<code>application/json</code>的解析，可以通过<code>req.body</code>接收请求数据，具体可参考：<a href="https://github.com/expressjs/body-parser" target="_blank" rel="noopener noreferrer">https://github.com/expressjs/body-parser<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//cybmock.config.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'GET /api/demo-bodyparser'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        res<span class="token punctuation">.</span><span class="token function">setHeader</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/plain'</span><span class="token punctuation">)</span>
+        res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'you posted:\n'</span><span class="token punctuation">)</span>
+        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>body<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="mock数据配置及管理"><a href="#mock数据配置及管理" aria-hidden="true" class="header-anchor">#</a> MOCK数据配置及管理</h2> <p>为了便于复杂项目MOCK数据的管理，请在与<code>cybmock.config.js</code>同级新建<code>mock</code>目录，用于存放更多的MOCK数据模块，并支持使用ES Module或CommonJS的模块化管理MOCK数据。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token keyword">.</span>
+├── cybmock.config.js // MOCK数据配置文件
+├── mock
+│   ├── demo-get.js
+│   └── demo-post.js
+├── node_modules
+│   └── mockjs
+└── package.json
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//cybmock.config.js</span>
+
+<span class="token keyword">import</span> demoGet <span class="token keyword">from</span> <span class="token string">'./mock/demo-get'</span>
+<span class="token keyword">import</span> demoPost <span class="token keyword">from</span> <span class="token string">'./mock/demo-post'</span>
+<span class="token keyword">import</span> mockjs <span class="token keyword">from</span> <span class="token string">'mockjs'</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'GET /api/demoGet'</span><span class="token punctuation">:</span> demoGet<span class="token punctuation">,</span>
+    <span class="token string">'POST /api/demoArray'</span><span class="token punctuation">:</span> demoPost<span class="token punctuation">,</span>
+    <span class="token string">'GET /api/demoMockjs'</span><span class="token punctuation">:</span> mockjs<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'@string(&quot;lower&quot;, 5)'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="mock服务器配置"><a href="#mock服务器配置" aria-hidden="true" class="header-anchor">#</a> MOCK服务器配置</h2> <p>cybmock支持独立的配置文件。</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token keyword">.</span>
+├── cybmock.config.js // MOCK数据配置文件
+├── cybmock.server.config.js // MOCK服务器配置文件
+├── mock
+│   ├── demo-get.js
+│   └── demo-post.js
+├── node_modules
+│   └── mockjs
+└── package.json
+</code></pre></div><h3 id="mock服务器端口配置"><a href="#mock服务器端口配置" aria-hidden="true" class="header-anchor">#</a> MOCK服务器端口配置</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//cybmock.server.config.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  port<span class="token punctuation">:</span> <span class="token number">5000</span> <span class="token comment">//自定义mock服务器端口号</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-bash extra-class"><pre class="language-bash"><code>
+Number Type Local External
+1	get  localhost:5000/api/demoGet    10.0.0.166:5000/api/demoGet	
+2	post localhost:5000/api/demoArray  10.0.0.166:5000/api/demoArray	
+3	get  localhost:5000/api/demoMockjs 10.0.0.166:5000/api/demoMockjs	
+</code></pre></div><blockquote><p>用于浏览接口列表的<code>browsersync</code>服务器依然使用默认的<code>3000</code>端口号。</p></blockquote> <h3 id="mock服务器session配置"><a href="#mock服务器session配置" aria-hidden="true" class="header-anchor">#</a> MOCK服务器Session配置</h3> <p>cybmock默认已集成<code>express-session</code>中间件，并在<code>cybmock.server.config.js</code>中提供配置项，具体配置信息请参考：<a href="https://github.com/expressjs/session" target="_blank" rel="noopener noreferrer">https://github.com/expressjs/session<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//cybmock.server.config.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  session<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    secret<span class="token punctuation">:</span> <span class="token string">'cybmock'</span><span class="token punctuation">,</span> <span class="token comment">// 对session id相关的cookie进行签名</span>
+    resave<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment">//是否每次都重新保存会话，建议false</span>
+    saveUninitialized<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token comment">// 是否自动保存未初始化的会话，建议false</span>
+    <span class="token comment">// cookie: {</span>
+    <span class="token comment">//   maxAge: 10 * 1000 // 有效期，单位是毫秒</span>
+    <span class="token comment">// }</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="mock服务器cookie配置"><a href="#mock服务器cookie配置" aria-hidden="true" class="header-anchor">#</a> MOCK服务器Cookie配置</h3> <p>cybmock默认已集成<code>cookie-parser</code>中间件，并在<code>cybmock.server.config.js</code>中提供配置项，具体配置信息请参考：<a href="https://github.com/expressjs/cookie-parser" target="_blank" rel="noopener noreferrer">https://github.com/expressjs/cookie-parser<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//cybmock.server.config.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  cookie<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    secret<span class="token punctuation">:</span> <span class="token string">'cybmock'</span><span class="token punctuation">,</span>
+    options<span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="browsersync配置"><a href="#browsersync配置" aria-hidden="true" class="header-anchor">#</a> Browsersync配置</h3> <p>cybmock使用Browsersync作为浏览MOCK接口的的服务，并在<code>cybmock.server.config.js</code>中提供配置项，具体配置信息请参考：<a href="https://www.browsersync.io/docs/options" target="_blank" rel="noopener noreferrer">https://www.browsersync.io/docs/options<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">//cybmock.server.config.js</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  browserSync<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    port<span class="token punctuation">:</span> <span class="token number">8080</span><span class="token punctuation">,</span> <span class="token comment">// default 3000</span>
+    <span class="token comment">// Change the default port</span>
+    ui<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        port<span class="token punctuation">:</span> <span class="token number">8080</span> <span class="token comment">// default 3001</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/cybmock/docs/assets/js/app.6c873d0a.js" defer></script><script src="/cybmock/docs/assets/js/4.a55ad2d3.js" defer></script>
+  </body>
+</html>
