@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://cybmock.hestudy.com" target="_blank">
+  <a href="https://jd-cyb.github.io/cybmock/" target="_blank">
     <img width="300" src="./lib/cybmock.png">
   </a>
   <br>
@@ -143,11 +143,11 @@ yarn global upgrade cybmock
 ```
 <h2 align="center">资源链接</h2>
 
-使用文档：[http://cybmock.hestudy.com/docs/](http://cybmock.hestudy.com/docs/)
+使用文档：[https://jd-cyb.github.io/cybmock/docs/](https://jd-cyb.github.io/cybmock/docs/)
 
-官方网站：[http://cybmock.hestudy.com/](http://cybmock.hestudy.com/)
+官方网站：[https://jd-cyb.github.io/cybmock/](https://jd-cyb.github.io/cybmock/)
 
-塞伯坦CYB：[http://cyb.hestudy.com/](http://cyb.hestudy.com/)
+塞伯坦CYB：[https://jd-cyb.github.io/cyb-cli/](https://jd-cyb.github.io/cyb-cli/)
 
 <h2 align="center">License</h2>
 
